@@ -8,49 +8,49 @@ const products = [
 	{
 		name: 'Peri-Peri Fries',
 		size: 'Large',
-		price: '$4.99',
+		price: '₹129',
 		img: 'https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg',
 	},
 	{
 		name: 'Cheese Nachos',
 		size: 'Regular',
-		price: '$5.49',
+		price: '₹199',
 		img: 'https://images.unsplash.com/photo-1570466199120-80bba1eabad7?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	},
 	{
 		name: 'Hot Chicken Wings',
 		size: '8 pcs',
-		price: '$6.79',
+		price: '₹299',
 		img: 'https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	},
 	{
 		name: 'Masala Popcorn',
 		size: 'Tub',
-		price: '$3.99',
+		price: '₹99',
 		img: 'https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg',
 	},
 	{
 		name: 'Peri-Peri Fries',
 		size: 'Large',
-		price: '$4.99',
+		price: '₹139',
 		img: 'https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg',
 	},
 	{
 		name: 'Cheese Nachos',
 		size: 'Regular',
-		price: '$5.49',
+		price: '₹149',
 		img: 'https://images.unsplash.com/photo-1570466199120-80bba1eabad7?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	},
 	{
 		name: 'Hot Chicken Wings',
 		size: '8 pcs',
-		price: '$6.79',
+		price: '₹299',
 		img: 'https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	},
 	{
 		name: 'Masala Popcorn',
 		size: 'Tub',
-		price: '$3.99',
+		price: '₹99',
 		img: 'https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg',
 	},
 ]
@@ -90,7 +90,7 @@ export default function ProductShowcase() {
 					viewport={{once: true}}
 					transition={{duration: 0.6, ease: 'easeOut'}}>
 					<p className='text-xs font-bold tracking-widest text-supernova uppercase'>
-						🔥 TRENDING NOW
+						TRENDING NOW
 					</p>
 					<h2 className='text-4xl sm:text-5xl md:text-6xl font-extrabold font-heading tracking-wider leading-tight text-white'>
 						Hot Picks
