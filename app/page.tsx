@@ -6,6 +6,7 @@ import ProductShowcase from './components/ProductShowcase'
 import HowItWorks from './components/HowItWorks'
 import CategoriesShowcase from './components/CategoriesShowcase'
 import Footer from './components/Footer'
+import SnackLabSection from './components/SnackSection'
 
 export default function Home() {
 	return (
@@ -17,6 +18,7 @@ export default function Home() {
 				<ProductShowcase />
 				<HowItWorks />
 				<CategoriesShowcase />
+				<SnackLabSection />
 				<WhyChooseUs />
 			</main>
 			<Footer />
