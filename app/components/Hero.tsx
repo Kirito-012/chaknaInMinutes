@@ -37,10 +37,15 @@ export default function Hero() {
 				transition={{
 					opacity: {duration: 0.6, delay: 1.8},
 					x: {duration: 0.6, delay: 1.8},
-					rotate: {duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 2.4},
+					rotate: {
+						duration: 3,
+						repeat: Infinity,
+						ease: 'easeInOut',
+						delay: 2.4,
+					},
 					scale: {duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 2.4},
 				}}
-				className='absolute top-20 sm:top-44 left-4 sm:left-72 w-20 sm:w-36 select-none pointer-events-none opacity-30 sm:opacity-40'
+				className='absolute top-20 sm:top-44 left-4 sm:left-72 w-28 sm:w-44 select-none pointer-events-none opacity-30 sm:opacity-40'
 			/>
 			<motion.img
 				src='/doodle-pancake.png'
@@ -55,10 +60,20 @@ export default function Hero() {
 				transition={{
 					opacity: {duration: 0.6, delay: 2.1},
 					x: {duration: 0.6, delay: 2.1},
-					rotate: {duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 2.7},
-					scale: {duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 2.7},
+					rotate: {
+						duration: 3.5,
+						repeat: Infinity,
+						ease: 'easeInOut',
+						delay: 2.7,
+					},
+					scale: {
+						duration: 3.5,
+						repeat: Infinity,
+						ease: 'easeInOut',
+						delay: 2.7,
+					},
 				}}
-				className='absolute bottom-32 sm:bottom-52 left-8 sm:left-56 w-20 sm:w-32 select-none pointer-events-none opacity-30 sm:opacity-40'
+				className='absolute bottom-32 sm:bottom-52 left-8 sm:left-56 w-28 sm:w-36 select-none pointer-events-none opacity-30 sm:opacity-40'
 			/>
 			<motion.img
 				src='/doodle-pizza.png'
@@ -73,13 +88,18 @@ export default function Hero() {
 				transition={{
 					opacity: {duration: 0.6, delay: 2.4},
 					x: {duration: 0.6, delay: 2.4},
-					rotate: {duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 3.0},
+					rotate: {
+						duration: 4,
+						repeat: Infinity,
+						ease: 'easeInOut',
+						delay: 3.0,
+					},
 					scale: {duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 3.0},
 				}}
-				className='absolute top-24 sm:top-72 right-4 sm:right-72 w-20 sm:w-36 select-none pointer-events-none opacity-30 sm:opacity-40'
+				className='absolute top-32 sm:top-72 right-4 sm:right-72 w-28 sm:w-64 select-none pointer-events-none'
 			/>
 			<motion.img
-				src='/doodle-chips.png'
+				src='/doodle-chips1.png'
 				style={{y: y4}}
 				initial={{opacity: 0, x: 100}}
 				animate={{
@@ -91,10 +111,20 @@ export default function Hero() {
 				transition={{
 					opacity: {duration: 0.6, delay: 2.7},
 					x: {duration: 0.6, delay: 2.7},
-					rotate: {duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay: 3.3},
-					scale: {duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay: 3.3},
+					rotate: {
+						duration: 3.2,
+						repeat: Infinity,
+						ease: 'easeInOut',
+						delay: 3.3,
+					},
+					scale: {
+						duration: 3.2,
+						repeat: Infinity,
+						ease: 'easeInOut',
+						delay: 3.3,
+					},
 				}}
-				className='absolute bottom-16 sm:bottom-32 right-8 sm:right-80 w-24 sm:w-40 select-none pointer-events-none opacity-30 sm:opacity-40'
+				className='absolute bottom-20 sm:bottom-32 right-2 sm:right-80 w-36 sm:w-40 select-none pointer-events-none opacity-30 sm:opacity-40'
 			/>
 
 			{/* MAIN CONTENT */}

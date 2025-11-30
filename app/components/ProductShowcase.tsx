@@ -30,25 +30,25 @@ const products = [
 		img: 'https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg',
 	},
 	{
-		name: 'Peri-Peri Fries',
+		name: 'Salty Fries',
 		size: 'Large',
 		price: '₹139',
 		img: 'https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg',
 	},
 	{
-		name: 'Cheese Nachos',
+		name: 'Spicy Nachos',
 		size: 'Regular',
 		price: '₹149',
 		img: 'https://images.unsplash.com/photo-1570466199120-80bba1eabad7?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	},
 	{
-		name: 'Hot Chicken Wings',
+		name: 'Spicy Chicken Wings',
 		size: '8 pcs',
 		price: '₹299',
 		img: 'https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	},
 	{
-		name: 'Masala Popcorn',
+		name: 'Sweet Popcorn',
 		size: 'Tub',
 		price: '₹99',
 		img: 'https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg',
@@ -113,16 +113,12 @@ export default function ProductShowcase() {
 			</div>
 
 			<div className='relative max-w-7xl mx-auto px-4'>
-				{/* fade overlays */}
-				{/* <div className='pointer-events-none absolute left-0 top-0 h-full w-4 bg-gradient-to-r from-white to-transparent' />
-				<div className='pointer-events-none absolute right-0 top-0 h-full w-4 bg-gradient-to-l from-white to-transparent' /> */}
-
 				<div
 					ref={sliderRef}
-					className='flex gap-6 overflow-x-scroll overflow-y-hidden scroll-smooth no-scrollbar px-6 py-4'
+					className='flex gap-6 overflow-x-auto scroll-smooth overflow-y-hidden no-scrollbar px-6 py-4'
 					style={{
 						scrollSnapType: 'x mandatory',
-						touchAction: 'pan-x',
+						WebkitOverflowScrolling: 'touch',
 					}}>
 					{products.map((item, i) => (
 						<motion.div

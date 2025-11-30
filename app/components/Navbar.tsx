@@ -4,7 +4,6 @@ import {useEffect, useState} from 'react'
 import {usePathname} from 'next/navigation'
 import Link from 'next/link'
 import {motion, AnimatePresence} from 'framer-motion'
-import {Menu, X} from 'lucide-react'
 
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false)
@@ -89,7 +88,6 @@ export default function Navbar() {
 							</Link>
 						</nav>
 
-						{/* Desktop CTA Button */}
 						<motion.button
 							whileHover={{scale: 1.1, rotate: -2}}
 							whileTap={{scale: 0.95}}
@@ -101,8 +99,30 @@ export default function Navbar() {
 						<motion.button
 							whileTap={{scale: 0.9}}
 							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-							className='md:hidden text-mineShaft p-2'>
-							{mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+							className='md:hidden text-mineShaft p-2 relative w-10 h-10 flex items-center justify-center'>
+							<div className='w-6 h-5 flex flex-col justify-between'>
+								<motion.span
+									animate={
+										mobileMenuOpen ? {rotate: 45, y: 8} : {rotate: 0, y: 0}
+									}
+									transition={{duration: 0.3}}
+									className='w-full h-0.5 bg-mineShaft rounded-full origin-center'
+								/>
+								<motion.span
+									animate={
+										mobileMenuOpen ? {opacity: 0, x: -10} : {opacity: 1, x: 0}
+									}
+									transition={{duration: 0.3}}
+									className='w-full h-0.5 bg-mineShaft rounded-full'
+								/>
+								<motion.span
+									animate={
+										mobileMenuOpen ? {rotate: -45, y: -8} : {rotate: 0, y: 0}
+									}
+									transition={{duration: 0.3}}
+									className='w-full h-0.5 bg-mineShaft rounded-full origin-center'
+								/>
+							</div>
 						</motion.button>
 					</div>
 				</div>
@@ -111,49 +131,94 @@ export default function Navbar() {
 			{/* Mobile Menu */}
 			<AnimatePresence>
 				{mobileMenuOpen && (
-					<motion.div
-						initial={{opacity: 0, x: '100%'}}
-						animate={{opacity: 1, x: 0}}
-						exit={{opacity: 0, x: '100%'}}
-						transition={{duration: 0.3, ease: 'easeInOut'}}
-						className='fixed top-0 right-0 h-screen w-full bg-white z-40 md:hidden pt-24 px-6'>
-						<nav className='flex flex-col gap-8 font-heading text-mineShaft'>
-							<Link
-								href='/'
-								onClick={() => setMobileMenuOpen(false)}
-								className={`text-3xl transition-all duration-300 ${
-									pathname === '/' ? 'text-redOrange' : 'hover:text-redOrange'
-								}`}>
-								Home
-							</Link>
-							<Link
-								href='/products'
-								onClick={() => setMobileMenuOpen(false)}
-								className={`text-3xl transition-all duration-300 ${
-									pathname === '/products'
-										? 'text-redOrange'
-										: 'hover:text-redOrange'
-								}`}>
-								Products
-							</Link>
-							<Link
-								href='/contact'
-								onClick={() => setMobileMenuOpen(false)}
-								className={`text-3xl transition-all duration-300 ${
-									pathname === '/contact'
-										? 'text-redOrange'
-										: 'hover:text-redOrange'
-								}`}>
-								Contact
-							</Link>
+					<>
+						<motion.div
+							initial={{opacity: 0}}
+							animate={{opacity: 1}}
+							exit={{opacity: 0}}
+							transition={{duration: 0.3}}
+							onClick={() => setMobileMenuOpen(false)}
+							className='fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden'
+						/>
+
+						<motion.div
+							initial={{x: '100%'}}
+							animate={{x: 0}}
+							exit={{x: '100%'}}
+							transition={{duration: 0.4, ease: [0.4, 0, 0.2, 1]}}
+							className='fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-gradient-to-br from-redOrange via-redOrange to-[#FF5048] z-50 md:hidden shadow-2xl'>
 							<motion.button
-								whileTap={{scale: 0.95}}
+								initial={{rotate: 0, opacity: 0}}
+								animate={{rotate: 0, opacity: 1}}
+								transition={{delay: 0.2}}
+								whileHover={{rotate: 90, scale: 1.1}}
+								whileTap={{scale: 0.9}}
 								onClick={() => setMobileMenuOpen(false)}
-								className='bg-redOrange text-white font-heading text-2xl px-8 py-3 rounded-xl shadow-md mt-4 w-fit border-2 border-redOrange'>
-								Feed Me!
+								className='absolute top-6 right-6 text-white p-2 hover:bg-white/20 rounded-full transition-colors z-10'>
+								<div className='w-6 h-6 relative'>
+									<motion.span className='absolute top-1/2 left-0 w-full h-0.5 bg-white rounded-full rotate-45 origin-center' />
+									<motion.span className='absolute top-1/2 left-0 w-full h-0.5 bg-white rounded-full -rotate-45 origin-center' />
+								</div>
 							</motion.button>
-						</nav>
-					</motion.div>
+
+							<div className='absolute top-0 right-0 w-64 h-64 bg-supernova/20 rounded-full blur-3xl'></div>
+							<div className='absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl'></div>
+
+							<div className='relative h-full flex flex-col pt-24 px-8 pb-8'>
+								<nav className='flex flex-col gap-6 font-heading flex-1'>
+									{[
+										{href: '/', label: 'Home'},
+										{href: '/products', label: 'Products'},
+										{href: '/contact', label: 'Contact'},
+									].map((link, idx) => (
+										<motion.div
+											key={link.href}
+											initial={{x: 50, opacity: 0}}
+											animate={{x: 0, opacity: 1}}
+											transition={{delay: idx * 0.1, duration: 0.4}}
+											whileHover={{x: 10, scale: 1.05}}
+											className='relative'>
+											<Link
+												href={link.href}
+												onClick={() => setMobileMenuOpen(false)}
+												className={`text-4xl transition-all duration-300 inline-block ${
+													pathname === link.href
+														? 'text-supernova'
+														: 'text-white hover:text-supernova'
+												}`}>
+												{link.label}
+											</Link>
+											{pathname === link.href && (
+												<motion.div
+													layoutId='mobile-active-link'
+													className='absolute -left-6 top-1/2 -translate-y-1/2 w-3 h-3 bg-supernova rounded-full'
+												/>
+											)}
+										</motion.div>
+									))}
+
+									<motion.button
+										initial={{y: 50, opacity: 0}}
+										animate={{y: 0, opacity: 1}}
+										transition={{delay: 0.3, duration: 0.4}}
+										whileHover={{scale: 1.05, rotate: -2}}
+										whileTap={{scale: 0.95}}
+										onClick={() => setMobileMenuOpen(false)}
+										className='bg-white text-redOrange font-heading text-2xl px-8 py-4 rounded-2xl shadow-lg mt-auto border-4 border-white hover:bg-supernova hover:text-mineShaft hover:border-supernova transition-all duration-300'>
+										Feed Me! 🍿
+									</motion.button>
+
+									<motion.p
+										initial={{opacity: 0}}
+										animate={{opacity: 1}}
+										transition={{delay: 0.5}}
+										className='text-white/60 text-sm text-center mt-6 font-body'>
+										Fast snacks, real flavor ⚡
+									</motion.p>
+								</nav>
+							</div>
+						</motion.div>
+					</>
 				)}
 			</AnimatePresence>
 		</>

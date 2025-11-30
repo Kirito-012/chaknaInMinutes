@@ -217,32 +217,81 @@ const products: Record<
 	],
 }
 
-const categories = ['Groceries', 'Electronics', 'Fashion', 'Home & Garden']
+// mood-based, funky tabs that still map to your product keys
+const categoryTabs = [
+	{
+		key: 'Groceries',
+		label: 'Daily Essentials',
+		emoji: '⚡',
+		tagline: 'Milk, bread, fruits & more',
+	},
+	{
+		key: 'Electronics',
+		label: 'Gadget Lifesavers',
+		emoji: '🔋',
+		tagline: 'Cables, chargers & fixes',
+	},
+	{
+		key: 'Fashion',
+		label: 'Style & Swag',
+		emoji: '🔥',
+		tagline: 'Wear it, flex it',
+	},
+	{
+		key: 'Home & Garden',
+		label: 'Home Vibes',
+		emoji: '🏡',
+		tagline: 'Cozy corners, happy plants',
+	},
+]
+
+const marqueeContent = [
+	'🚀 10-minute delivery on thousands of items',
+	'🔥 Fresh, hot & handpicked for your cravings',
+	'⭐ Loved by snack addicts across the city',
+	'💥 Order now & feel that snack rush!',
+]
 
 export default function CategoriesShowcase() {
-	const [activeCategory, setActiveCategory] = useState('Groceries')
+	const [activeCategory, setActiveCategory] = useState<string>('Groceries')
+
 	return (
 		<section className='py-16 sm:py-24 bg-pearlLusta relative overflow-hidden'>
-			{/* Decorative Background Elements */}
-			<div className='absolute top-0 left-0 w-64 h-64 bg-supernova/10 rounded-full blur-3xl'></div>
-			<div className='absolute bottom-0 right-0 w-96 h-96 bg-redOrange/10 rounded-full blur-3xl'></div>
+			{/* Soft gradient blobs */}
+			<div className='pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-supernova/25 rounded-full blur-3xl' />
+			<div className='pointer-events-none absolute -bottom-32 -right-16 w-80 h-80 bg-redOrange/25 rounded-full blur-3xl' />
+
+			{/* Floating doodles */}
+			<motion.div
+				className='pointer-events-none absolute top-24 left-10 text-5xl opacity-40'
+				animate={{y: [0, -12, 0]}}
+				transition={{duration: 5, repeat: Infinity, ease: 'easeInOut'}}>
+				🍟
+			</motion.div>
+			<motion.div
+				className='pointer-events-none absolute bottom-32 right-12 text-6xl opacity-30'
+				animate={{y: [0, 14, 0]}}
+				transition={{duration: 6, repeat: Infinity, ease: 'easeInOut'}}>
+				🧃
+			</motion.div>
 
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-				<div className='text-center mb-12 sm:mb-16'>
+				{/* Heading */}
+				<div className='text-center mb-10 sm:mb-14'>
 					<motion.p
 						initial={{opacity: 0, y: 20}}
 						whileInView={{opacity: 1, y: 0}}
 						viewport={{once: true}}
 						transition={{duration: 0.5}}
-						className='text-xs font-bold tracking-widest text-redOrange uppercase mb-2'>
-						SHOP BY CATEGORY
+						className='font-body text-xs font-semibold tracking-[0.25em] text-redOrange uppercase mb-3'>
+						Shop by mood
 					</motion.p>
 					<motion.h2
 						initial={{opacity: 0, y: 20}}
 						whileInView={{opacity: 1, y: 0}}
 						viewport={{once: true}}
 						transition={{duration: 0.5, delay: 0.1}}
-						className='font-heading text-4xl sm:text-5xl md:text-6xl text-mineShaft mb-4 tracking-wider'>
+						className='font-heading text-4xl sm:text-5xl md:text-6xl text-mineShaft mb-3 tracking-wider'>
 						BROWSE COLLECTION
 					</motion.h2>
 					<motion.p
@@ -250,43 +299,99 @@ export default function CategoriesShowcase() {
 						whileInView={{opacity: 1, y: 0}}
 						viewport={{once: true}}
 						transition={{duration: 0.5, delay: 0.2}}
-						className='text-base sm:text-lg text-gray-700 max-w-2xl mx-auto font-medium'>
-						Discover our handpicked selection from top categories
+						className='font-body text-base sm:text-lg text-gray-700 max-w-2xl mx-auto'>
+						Pick a vibe, we’ll handle the rest — fresh, fast and right on time.
 					</motion.p>
 				</div>
 
-				{/* Category Tabs */}
+				{/* Tabs */}
 				<motion.div
-					initial={{opacity: 0, y: 20}}
+					initial={{opacity: 0, y: 15}}
 					whileInView={{opacity: 1, y: 0}}
 					viewport={{once: true}}
-					transition={{duration: 0.5, delay: 0.3}}
-					className='flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16'>
-					{categories.map((category, idx) => (
-						<motion.button
-							key={category}
-							onClick={() => setActiveCategory(category)}
-							initial={{opacity: 0, scale: 0.8}}
-							whileInView={{opacity: 1, scale: 1}}
-							viewport={{once: true}}
-							transition={{delay: idx * 0.1}}
-							whileHover={{scale: 1.08}}
-							whileTap={{scale: 0.95}}
-							className={`relative px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 ${
-								activeCategory === category
-									? 'bg-redOrange text-white shadow-[0_8px_20px_rgba(255,59,48,0.4)]'
-									: 'bg-white text-mineShaft hover:bg-white/80 shadow-md'
-							}`}>
-							{category}
-							{activeCategory === category && (
-								<motion.div
-									layoutId='activeTab'
-									className='absolute bottom-0 left-0 right-0 h-1 bg-supernova rounded-full'
-								/>
-							)}
-						</motion.button>
-					))}
+					transition={{duration: 0.5}}
+					className='hidden sm:flex flex-wrap justify-center gap-3 sm:gap-4 mb-10'>
+					{categoryTabs.map((tab, idx) => {
+						const isActive = activeCategory === tab.key
+						return (
+							<motion.button
+								key={tab.key}
+								onClick={() => setActiveCategory(tab.key)}
+								whileHover={{scale: 1.06}}
+								whileTap={{scale: 0.96}}
+								className={`relative overflow-hidden rounded-2xl px-6 py-4 flex flex-col items-start min-w-[210px] border font-body text-left transition-all duration-300 ${
+									isActive
+										? 'border-redOrange bg-white shadow-[0_10px_30px_rgba(255,59,48,0.35)]'
+										: 'border-transparent bg-white/80 shadow-md hover:shadow-lg hover:border-redOrange/60'
+								}`}>
+								<div className='flex items-center gap-2 mb-1'>
+									<span className='text-2xl'>{tab.emoji}</span>
+									<span className='font-heading text-lg tracking-wide text-mineShaft'>
+										{tab.label}
+									</span>
+								</div>
+								<span className='text-sm text-gray-600 font-body'>
+									{tab.tagline}
+								</span>
+
+								{isActive && (
+									<motion.div
+										layoutId='tabUnderline'
+										className='absolute bottom-0 left-4 right-4 h-1 rounded-full bg-supernova'
+									/>
+								)}
+							</motion.button>
+						)
+					})}
 				</motion.div>
+
+				{/* Mobile horizontal scroll version */}
+				<motion.div
+					initial={{opacity: 0, y: 15}}
+					whileInView={{opacity: 1, y: 0}}
+					viewport={{once: true}}
+					transition={{duration: 0.5}}
+					className='flex sm:hidden gap-3 overflow-x-auto no-scrollbar pb-3 mb-8'>
+					{categoryTabs.map((tab) => {
+						const isActive = activeCategory === tab.key
+						return (
+							<motion.button
+								key={tab.key}
+								onClick={() => setActiveCategory(tab.key)}
+								whileTap={{scale: 0.95}}
+								className={`whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full font-heading text-base tracking-wide ${
+									isActive
+										? 'bg-redOrange text-white shadow-[0_8px_20px_rgba(255,59,48,0.35)]'
+										: 'bg-white text-mineShaft shadow-md'
+								}`}>
+								<span className='text-lg'>{tab.emoji}</span>
+								{tab.label}
+							</motion.button>
+						)
+					})}
+				</motion.div>
+
+				{/* Marquee strip */}
+				<div className='mb-10 relative'>
+					<div className='relative overflow-hidden rounded-full bg-mineShaft text-white py-2 px-4'>
+						<motion.div
+							animate={{x: ['0%', '-100%']}}
+							transition={{duration: 14, repeat: Infinity, ease: 'linear'}}
+							className='flex whitespace-nowrap font-heading text-sm sm:text-base tracking-wide'>
+							<div className='flex items-center gap-10'>
+								{marqueeContent.map((item, idx) => (
+									<span key={idx}>{item}</span>
+								))}
+							</div>
+
+							<div className='flex items-center gap-10 ml-10'>
+								{marqueeContent.map((item, idx) => (
+									<span key={`copy-${idx}`}>{item}</span>
+								))}
+							</div>
+						</motion.div>
+					</div>
+				</div>
 
 				{/* Product Grid */}
 				<motion.div
@@ -308,11 +413,9 @@ export default function CategoriesShowcase() {
 								<img
 									src={product.img}
 									alt={product.name}
-									className='w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-all duration-700'
+									className='w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700'
 								/>
-								{/* Vibrant Gradient Overlay */}
-								<div className='absolute inset-0 bg-gradient-to-t from-mineShaft/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300'></div>
-								{/* Rating Badge */}
+								<div className='absolute inset-0 bg-gradient-to-t from-mineShaft/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300' />
 								<div className='absolute top-3 right-3 bg-supernova text-mineShaft px-3 py-1 rounded-full text-xs font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300'>
 									★ {product.rating}
 								</div>
@@ -324,33 +427,33 @@ export default function CategoriesShowcase() {
 									{product.name}
 								</h3>
 
-								{/* Reviews count */}
 								<div className='flex items-center gap-1 mb-3 text-xs text-gray-500'>
 									<Star className='w-3 h-3 fill-supernova text-supernova' />
-									<span className='font-semibold'>{product.reviews} reviews</span>
+									<span className='font-semibold'>
+										{product.reviews} reviews
+									</span>
 								</div>
 
-								{/* Price Section */}
 								<div className='flex items-end justify-between mb-4'>
 									<div>
 										<span className='font-heading text-3xl sm:text-4xl text-redOrange tracking-tight leading-none block'>
 											₹{product.price}
 										</span>
-										<span className='text-xs text-gray-500 font-medium'>Best Price</span>
+										<span className='font-body text-xs text-gray-500 font-medium'>
+											Best Price
+										</span>
 									</div>
 								</div>
 
-								{/* Add to Cart Button - Full Width */}
 								<motion.button
 									whileHover={{scale: 1.03}}
 									whileTap={{scale: 0.97}}
-									className='w-full bg-gradient-to-r from-redOrange to-redOrange/90 hover:from-redOrange/90 hover:to-redOrange text-white py-3 px-4 rounded-xl font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-[0_8px_25px_rgba(255,59,48,0.35)] flex items-center justify-center gap-2 group/btn'>
+									className='w-full bg-gradient-to-r from-redOrange to-redOrange/90 hover:from-redOrange/90 hover:to-redOrange text-white py-3 px-4 rounded-xl font-body font-semibold text-sm sm:text-base transition-all shadow-md hover:shadow-[0_8px_25px_rgba(255,59,48,0.35)] flex items-center justify-center gap-2 group/btn'>
 									<ShoppingCart className='w-5 h-5 group-hover/btn:scale-110 transition-transform' />
 									<span>ADD TO CART</span>
 								</motion.button>
 
-								{/* Bottom Accent */}
-								<div className='absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-supernova to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+								<div className='absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-supernova to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 							</div>
 						</motion.div>
 					))}
