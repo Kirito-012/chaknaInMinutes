@@ -134,7 +134,7 @@ export default function Hero() {
 					animate={{opacity: 1, y: 0}}
 					transition={{duration: 0.8, delay: 0.4, ease: 'easeOut'}}
 					className='font-heading text-[48px] sm:text-[64px] md:text-[90px] leading-none drop-shadow-lg'>
-					SNACKS THAT HIT <br /> DIFFERENT, FAST
+					Healthy Snacks <br /> Delivered in Minutes
 				</motion.h1>
 
 				<motion.p
@@ -142,8 +142,8 @@ export default function Hero() {
 					animate={{opacity: 1, y: 0}}
 					transition={{duration: 0.7, delay: 0.9}}
 					className='mt-6 max-w-xl mx-auto text-base sm:text-lg md:text-xl text-white/90 font-medium px-4'>
-					Packed with real flavor, delivered to you in minutes — not days. This
-					is how snacking should feel.
+					Wholesome, delicious, and lightning-fast. From protein-packed bites to
+					guilt-free munchies, your next healthy snack is just minutes away
 				</motion.p>
 
 				<motion.div

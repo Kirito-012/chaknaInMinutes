@@ -3,7 +3,6 @@
 import React, {useState} from 'react'
 import {motion} from 'framer-motion'
 import {Star, ShoppingCart} from 'lucide-react'
-
 const products: Record<
 	string,
 	Array<{
@@ -15,233 +14,179 @@ const products: Record<
 		img: string
 	}>
 > = {
-	Groceries: [
+	'Healthy Namkeen': [
 		{
 			id: 1,
-			name: 'Organic Apples',
-			price: 399,
+			name: 'Roasted Chana Jor Garam',
+			price: 149,
 			rating: 4.8,
-			reviews: 245,
-			img: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500&q=80',
+			reviews: 421,
+			img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=80',
 		},
 		{
 			id: 2,
-			name: 'Whole Wheat Bread',
-			price: 279,
-			rating: 4.9,
-			reviews: 128,
-			img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80',
-		},
-		{
-			id: 3,
-			name: 'Fresh Milk 1L',
-			price: 239,
+			name: 'Jowar Puffs - Masala',
+			price: 129,
 			rating: 4.7,
 			reviews: 312,
-			img: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&q=80',
+			img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500&q=80',
+		},
+		{
+			id: 3,
+			name: 'Baked Multigrain Mixture',
+			price: 159,
+			rating: 4.9,
+			reviews: 198,
+			img: 'https://images.unsplash.com/photo-1585238342028-1cce6c35f649?w=500&q=80',
 		},
 		{
 			id: 4,
-			name: 'Cheddar Cheese',
-			price: 559,
+			name: 'Protein Makhana (Peri-Peri)',
+			price: 239,
 			rating: 4.8,
-			reviews: 89,
-			img: 'https://images.unsplash.com/photo-1452195100486-9cc805987862?w=500&q=80',
+			reviews: 276,
+			img: 'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=500&q=80',
 		},
 		{
 			id: 5,
-			name: 'Tomatoes (1kg)',
-			price: 319,
+			name: 'Roasted Peanuts Masala',
+			price: 119,
 			rating: 4.6,
-			reviews: 156,
-			img: 'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=500&q=80',
+			reviews: 159,
+			img: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=500&q=80',
 		},
 		{
 			id: 6,
-			name: 'Spinach Bundle',
+			name: 'Baked Nachni Chips',
+			price: 169,
+			rating: 4.7,
+			reviews: 142,
+			img: 'https://images.unsplash.com/photo-1604908177522-facb599582c8?w=500&q=80',
+		},
+	],
+
+	'Sprouts & Salads': [
+		{
+			id: 1,
+			name: 'Classic Sprout Salad Bowl',
 			price: 199,
 			rating: 4.9,
-			reviews: 201,
-			img: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=500&q=80',
-		},
-	],
-	Electronics: [
-		{
-			id: 1,
-			name: 'USB-C Cable',
-			price: 1049,
-			rating: 4.7,
-			reviews: 456,
-			img: 'https://images.unsplash.com/photo-1591290619762-a9b050dbce6f?w=500&q=80',
+			reviews: 312,
+			img: 'https://images.unsplash.com/photo-1604908140918-2799bb203271?w=500&q=80',
 		},
 		{
 			id: 2,
-			name: 'Phone Case',
-			price: 1199,
+			name: 'Moong Sprouts Lemon Mix',
+			price: 179,
 			rating: 4.8,
-			reviews: 678,
-			img: 'https://images.unsplash.com/photo-1601593346740-925612772716?w=500&q=80',
+			reviews: 221,
+			img: 'https://images.unsplash.com/photo-1524061662617-532de5a1e6df?w=500&q=80',
 		},
 		{
 			id: 3,
-			name: 'Screen Protector',
-			price: 719,
-			rating: 4.6,
-			reviews: 234,
-			img: 'https://images.unsplash.com/photo-1625337278461-f98ecf8e1a7c?w=500&q=80',
+			name: 'Chickpea Protein Bowl',
+			price: 229,
+			rating: 4.7,
+			reviews: 189,
+			img: 'https://images.unsplash.com/photo-1536514498073-adfb6f6f33e1?w=500&q=80',
 		},
 		{
 			id: 4,
-			name: 'Portable Charger',
-			price: 2399,
+			name: 'Veggie Detox Salad',
+			price: 249,
+			rating: 4.8,
+			reviews: 302,
+			img: 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=500&q=80',
+		},
+	],
+
+	'Corn & Chaat': [
+		{
+			id: 1,
+			name: 'Tandoori Corn Chaat',
+			price: 159,
+			rating: 4.8,
+			reviews: 278,
+			img: 'https://images.unsplash.com/photo-1626082927389-6c66044324ef?w=500&q=80',
+		},
+		{
+			id: 2,
+			name: 'Classic Butter Corn Cup',
+			price: 129,
+			rating: 4.7,
+			reviews: 193,
+			img: 'https://images.unsplash.com/photo-1629973893444-8d8c1ac44e0e?w=500&q=80',
+		},
+		{
+			id: 3,
+			name: 'Cheesy Sweet Corn Mix',
+			price: 169,
 			rating: 4.9,
-			reviews: 512,
-			img: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&q=80',
-		},
-		{
-			id: 5,
-			name: 'Bluetooth Speaker',
-			price: 2799,
-			rating: 4.8,
-			reviews: 789,
-			img: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80',
-		},
-		{
-			id: 6,
-			name: 'Wireless Earbuds',
-			price: 3999,
-			rating: 4.7,
-			reviews: 923,
-			img: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80',
+			reviews: 325,
+			img: 'https://images.unsplash.com/photo-1604908812730-516f33e92e7a?w=500&q=80',
 		},
 	],
-	Fashion: [
+
+	'Dry Fruits & Seeds': [
 		{
 			id: 1,
-			name: 'Cotton T-Shirt',
-			price: 1599,
-			rating: 4.7,
-			reviews: 342,
-			img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80',
+			name: 'Mixed Dry Fruits Pack',
+			price: 299,
+			rating: 4.9,
+			reviews: 430,
+			img: 'https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=500&q=80',
 		},
 		{
 			id: 2,
-			name: 'Denim Jeans',
-			price: 4799,
+			name: 'Almonds & Raisins Combo',
+			price: 279,
 			rating: 4.8,
-			reviews: 567,
-			img: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&q=80',
+			reviews: 312,
+			img: 'https://images.unsplash.com/photo-1576092768242-6f5d346ba1f6?w=500&q=80',
 		},
 		{
 			id: 3,
-			name: 'Casual Sneakers',
-			price: 6399,
-			rating: 4.6,
-			reviews: 412,
-			img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&q=80',
+			name: 'Seeds Mix – Omega Boost',
+			price: 199,
+			rating: 4.7,
+			reviews: 256,
+			img: 'https://images.unsplash.com/photo-1585842265985-4bfdc88a5f7b?w=500&q=80',
 		},
 		{
 			id: 4,
-			name: 'Baseball Cap',
-			price: 1999,
-			rating: 4.7,
+			name: 'Pistachios Salted',
+			price: 349,
+			rating: 4.8,
 			reviews: 198,
-			img: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&q=80',
-		},
-		{
-			id: 5,
-			name: 'Sports Socks Pack',
-			price: 1199,
-			rating: 4.9,
-			reviews: 301,
-			img: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=500&q=80',
-		},
-		{
-			id: 6,
-			name: 'Summer Dress',
-			price: 3599,
-			rating: 4.8,
-			reviews: 289,
-			img: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500&q=80',
-		},
-	],
-	'Home & Garden': [
-		{
-			id: 1,
-			name: 'LED Desk Lamp',
-			price: 2799,
-			rating: 4.8,
-			reviews: 234,
-			img: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80',
-		},
-		{
-			id: 2,
-			name: 'Plant Pot Set',
-			price: 1999,
-			rating: 4.7,
-			reviews: 145,
-			img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500&q=80',
-		},
-		{
-			id: 3,
-			name: 'Bath Towels',
-			price: 1599,
-			rating: 4.9,
-			reviews: 378,
-			img: 'https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=500&q=80',
-		},
-		{
-			id: 4,
-			name: 'Bed Sheets',
-			price: 3599,
-			rating: 4.7,
-			reviews: 289,
-			img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80',
-		},
-		{
-			id: 5,
-			name: 'Kitchen Organizer',
-			price: 2399,
-			rating: 4.8,
-			reviews: 156,
-			img: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=500&q=80',
-		},
-		{
-			id: 6,
-			name: 'Wall Mirror',
-			price: 3999,
-			rating: 4.6,
-			reviews: 223,
-			img: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&q=80',
+			img: 'https://images.unsplash.com/photo-1615485290399-3861a0c5d28f?w=500&q=80',
 		},
 	],
 }
 
-// mood-based, funky tabs that still map to your product keys
 const categoryTabs = [
 	{
-		key: 'Groceries',
-		label: 'Daily Essentials',
-		emoji: '⚡',
-		tagline: 'Milk, bread, fruits & more',
+		key: 'Healthy Namkeen',
+		label: 'Crispy & Clean',
+		emoji: '🥜',
+		tagline: 'Roasted, baked, never fried',
 	},
 	{
-		key: 'Electronics',
-		label: 'Gadget Lifesavers',
-		emoji: '🔋',
-		tagline: 'Cables, chargers & fixes',
+		key: 'Sprouts & Salads',
+		label: 'Fresh Fuel',
+		emoji: '🥗',
+		tagline: 'Protein-packed goodness',
 	},
 	{
-		key: 'Fashion',
-		label: 'Style & Swag',
-		emoji: '🔥',
-		tagline: 'Wear it, flex it',
+		key: 'Corn & Chaat',
+		label: 'Zesty Bites',
+		emoji: '🌽',
+		tagline: 'Tangy bowls for instant cravings',
 	},
 	{
-		key: 'Home & Garden',
-		label: 'Home Vibes',
-		emoji: '🏡',
-		tagline: 'Cozy corners, happy plants',
+		key: 'Dry Fruits & Seeds',
+		label: 'Power Boost',
+		emoji: '💪',
+		tagline: 'Energy for the grind',
 	},
 ]
 
@@ -253,15 +198,14 @@ const marqueeContent = [
 ]
 
 export default function CategoriesShowcase() {
-	const [activeCategory, setActiveCategory] = useState<string>('Groceries')
+	const [activeCategory, setActiveCategory] =
+		useState<string>('Healthy Namkeen')
 
 	return (
 		<section className='py-16 sm:py-24 bg-pearlLusta relative overflow-hidden'>
-			{/* Soft gradient blobs */}
 			<div className='pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-supernova/25 rounded-full blur-3xl' />
 			<div className='pointer-events-none absolute -bottom-32 -right-16 w-80 h-80 bg-redOrange/25 rounded-full blur-3xl' />
 
-			{/* Floating doodles */}
 			<motion.div
 				className='pointer-events-none absolute top-24 left-10 text-5xl opacity-40'
 				animate={{y: [0, -12, 0]}}
