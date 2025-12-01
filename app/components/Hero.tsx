@@ -154,7 +154,7 @@ export default function Hero() {
 					<motion.button
 						initial={{opacity: 0, scale: 0.8}}
 						animate={{opacity: 1, scale: 1}}
-						transition={{duration: 0.4, delay: 1.5}}
+						transition={{duration: 0.3, delay: 0}}
 						whileHover={{scale: 1.12, rotate: 3}}
 						whileTap={{scale: 0.9}}
 						className='bg-white text-redOrange font-heading text-xl sm:text-2xl px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl shadow-lg transition-all tracking-wide'>
@@ -163,7 +163,7 @@ export default function Hero() {
 					<motion.button
 						initial={{opacity: 0, scale: 0.8}}
 						animate={{opacity: 1, scale: 1}}
-						transition={{duration: 0.4, delay: 1.7}}
+						transition={{duration: 0.3, delay: 0}}
 						whileHover={{
 							scale: 1.12,
 							rotate: -3,

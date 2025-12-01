@@ -42,75 +42,65 @@ export default function SnackLabSection() {
 			<div className='pointer-events-none absolute top-1/2 right-0 w-80 h-80 bg-redOrange/20 rounded-full blur-3xl will-change-transform' />
 			<div className='pointer-events-none absolute -bottom-40 left-1/4 w-96 h-96 bg-supernova/25 rounded-full blur-3xl will-change-transform' />
 
+			<div className='absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,202,10,0.1),rgba(255,255,255,0)_70%)] pointer-events-none' />
 			<motion.div
-				initial={{scale: 0}}
-				animate={{scale: 1}}
-				transition={{duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1]}}
-				className='absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,202,10,0.1),rgba(255,255,255,0)_70%)] pointer-events-none will-change-transform'
-			/>
-			<motion.div
-				animate={{y: [0, -20, 0], rotate: [0, 10, 0]}}
+				animate={{y: [0, -15, 0]}}
 				transition={{
 					duration: 5,
 					repeat: Infinity,
-					ease: 'easeInOut',
+					ease: [0.4, 0, 0.2, 1],
 					repeatType: 'loop',
 				}}
-				className='absolute left-8 sm:left-16 top-32 text-5xl sm:text-7xl opacity-30 pointer-events-none will-change-transform'>
+				className='absolute left-8 sm:left-16 top-32 text-5xl sm:text-7xl opacity-30 pointer-events-none'>
 				🥟
 			</motion.div>
 			<motion.div
-				animate={{y: [0, 25, 0], rotate: [0, -15, 0]}}
+				animate={{y: [0, 20, 0]}}
 				transition={{
 					duration: 6,
 					repeat: Infinity,
-					ease: 'easeInOut',
+					ease: [0.4, 0, 0.2, 1],
 					repeatType: 'loop',
 				}}
-				className='absolute right-8 sm:right-20 top-20 text-6xl sm:text-8xl opacity-25 pointer-events-none will-change-transform'>
+				className='absolute right-8 sm:right-20 top-20 text-6xl sm:text-8xl opacity-25 pointer-events-none'>
 				🍕
 			</motion.div>
 			<motion.div
-				animate={{y: [0, -18, 0], rotate: [0, 12, 0]}}
+				animate={{y: [0, -15, 0]}}
 				transition={{
 					duration: 5.5,
 					repeat: Infinity,
-					ease: 'easeInOut',
+					ease: [0.4, 0, 0.2, 1],
 					repeatType: 'loop',
 				}}
-				className='absolute right-12 sm:right-32 bottom-32 text-5xl sm:text-7xl opacity-30 pointer-events-none will-change-transform'>
+				className='absolute right-12 sm:right-32 bottom-32 text-5xl sm:text-7xl opacity-30 pointer-events-none'>
 				🍟
 			</motion.div>
 			<motion.div
-				animate={{y: [0, 22, 0], x: [0, 10, 0]}}
+				animate={{y: [0, 18, 0]}}
 				transition={{
 					duration: 7,
 					repeat: Infinity,
-					ease: 'easeInOut',
+					ease: [0.4, 0, 0.2, 1],
 					repeatType: 'loop',
 				}}
-				className='absolute left-16 sm:left-40 bottom-20 text-6xl opacity-25 pointer-events-none will-change-transform'>
+				className='absolute left-16 sm:left-40 bottom-20 text-6xl opacity-25 pointer-events-none'>
 				🌮
 			</motion.div>
 
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
 				{/* Header */}
 				<motion.div
-					initial={{opacity: 0, y: 30}}
+					initial={{opacity: 0, y: 20}}
 					whileInView={{opacity: 1, y: 0}}
-					viewport={{once: true, amount: 0.3}}
-					transition={{duration: 0.6, ease: [0.4, 0, 0.2, 1]}}
+					viewport={{once: true, margin: '-50px'}}
+					transition={{duration: 0.5, ease: [0.4, 0, 0.2, 1]}}
 					className='text-center mb-16 sm:mb-20'>
 					<motion.div
-						initial={{scale: 0}}
-						whileInView={{scale: 1}}
+						initial={{opacity: 0}}
+						whileInView={{opacity: 1}}
 						viewport={{once: true}}
-						transition={{
-							type: 'spring',
-							stiffness: 200,
-							damping: 15,
-							delay: 0.1,
-						}}
+						transition={{duration: 0.4, ease: [0.4, 0, 0.2, 1]}}
 						className='inline-block mb-4'>
 						<span className='inline-block bg-supernova/20 text-redOrange px-6 py-2 rounded-full font-heading text-sm sm:text-base tracking-wider border-2 border-supernova/40'>
 							HOW WE DO IT
@@ -156,44 +146,41 @@ export default function SnackLabSection() {
 				<div className='relative mb-16 sm:mb-20'>
 					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 relative'>
 						{steps.map((step, index) => {
-						const IconComponent = step.icon
-						return (
-							<motion.div
-								key={index}
-								initial={{opacity: 0, y: 50}}
-								whileInView={{opacity: 1, y: 0}}
-								viewport={{once: true, amount: 0.3}}
-								transition={{
-									delay: index * 0.1,
-									duration: 0.5,
-									ease: [0.4, 0, 0.2, 1],
-								}}
-								whileHover={{y: -10, transition: {duration: 0.3, ease: 'easeOut'}}}
-								className='relative flex flex-col items-center text-center group will-change-transform'>
-								{/* Icon Container */}
+							const IconComponent = step.icon
+							return (
 								<motion.div
-									whileHover={{
-										scale: 1.15,
-										rotate: [0, -5, 5, 0],
-										transition: {duration: 0.4, ease: 'easeInOut'},
+									key={index}
+									initial={{opacity: 0, y: 30}}
+									whileInView={{opacity: 1, y: 0}}
+									viewport={{once: true, margin: '-50px'}}
+									transition={{
+										delay: index * 0.08,
+										duration: 0.4,
+										ease: [0.4, 0, 0.2, 1],
 									}}
-									className={`relative mb-6 w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] group-hover:shadow-[0_12px_40px_rgba(255,59,48,0.3)] transition-shadow duration-300 will-change-transform`}>
+									whileHover={{y: -8}}
+									className='relative flex flex-col items-center text-center group'>
+									{/* Icon Container */}
+									<motion.div
+										whileHover={{scale: 1.1}}
+										transition={{duration: 0.2, ease: [0.4, 0, 0.2, 1]}}
+										className={`relative mb-6 w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.12)] group-hover:shadow-[0_12px_40px_rgba(255,59,48,0.3)] transition-shadow duration-300`}>
 										<IconComponent
 											className='w-10 h-10 sm:w-12 sm:h-12 text-white'
 											strokeWidth={2.5}
 										/>
 
-									{/* Floating emoji */}
-									<motion.span
-										animate={{y: [0, -8, 0]}}
-										transition={{
-											duration: 2,
-											repeat: Infinity,
-											delay: index * 0.2,
-											ease: 'easeInOut',
-											repeatType: 'loop',
-										}}
-										className='absolute -top-3 -right-3 text-3xl sm:text-4xl will-change-transform'>
+										{/* Floating emoji */}
+										<motion.span
+											animate={{y: [0, -6, 0]}}
+											transition={{
+												duration: 2.5,
+												repeat: Infinity,
+												delay: index * 0.2,
+												ease: [0.4, 0, 0.2, 1],
+												repeatType: 'loop',
+											}}
+											className='absolute -top-3 -right-3 text-3xl sm:text-4xl'>
 											{step.emoji}
 										</motion.span>
 
@@ -214,18 +201,18 @@ export default function SnackLabSection() {
 										{step.text}
 									</p>
 
-								{/* Bottom Accent Line */}
-								<motion.div
-									initial={{scaleX: 0}}
-									whileInView={{scaleX: 1}}
-									viewport={{once: true}}
-									transition={{
-										delay: index * 0.1 + 0.4,
-										duration: 0.5,
-										ease: [0.4, 0, 0.2, 1],
-									}}
-									className='mt-4 h-1 w-16 bg-gradient-to-r from-supernova to-redOrange rounded-full will-change-transform'
-								/>
+									{/* Bottom Accent Line */}
+									<motion.div
+										initial={{scaleX: 0}}
+										whileInView={{scaleX: 1}}
+										viewport={{once: true}}
+										transition={{
+											delay: index * 0.08 + 0.3,
+											duration: 0.4,
+											ease: [0.4, 0, 0.2, 1],
+										}}
+										className='mt-4 h-1 w-16 bg-gradient-to-r from-supernova to-redOrange rounded-full'
+									/>
 								</motion.div>
 							)
 						})}
@@ -234,40 +221,27 @@ export default function SnackLabSection() {
 
 				{/* Video Preview Card */}
 				<motion.div
-					initial={{opacity: 0, scale: 0.95}}
-					whileInView={{opacity: 1, scale: 1}}
-					viewport={{once: true, amount: 0.2}}
-					transition={{duration: 0.6, ease: [0.4, 0, 0.2, 1]}}
-					whileHover={{
-						scale: 1.02,
-						transition: {duration: 0.3, ease: 'easeOut'},
-					}}
-					className='relative group cursor-pointer will-change-transform'>
+					initial={{opacity: 0, y: 20}}
+					whileInView={{opacity: 1, y: 0}}
+					viewport={{once: true, margin: '-50px'}}
+					transition={{duration: 0.5, ease: [0.4, 0, 0.2, 1]}}
+					whileHover={{scale: 1.02}}
+					className='relative group cursor-pointer'>
 					<div className='relative w-full h-64 sm:h-80 lg:h-96 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] bg-gradient-to-br from-redOrange via-[#FF5048] to-redOrange'>
-						{/* Animated gradient overlay */}
-						<motion.div
-							animate={{
-								background: [
-									'radial-gradient(circle at 20% 50%, rgba(255,202,10,0.3) 0%, transparent 50%)',
-									'radial-gradient(circle at 80% 50%, rgba(255,202,10,0.3) 0%, transparent 50%)',
-									'radial-gradient(circle at 20% 50%, rgba(255,202,10,0.3) 0%, transparent 50%)',
-								],
-							}}
-							transition={{duration: 4, repeat: Infinity, ease: 'easeInOut'}}
-							className='absolute inset-0'
-						/>
+						{/* Gradient overlay */}
+						<div className='absolute inset-0 bg-gradient-to-br from-transparent via-supernova/10 to-transparent' />
 
 						{/* Content */}
 						<div className='relative h-full flex flex-col items-center justify-center text-white px-6'>
-						<motion.div
-							animate={{scale: [1, 1.1, 1]}}
-							transition={{
-								duration: 2,
-								repeat: Infinity,
-								ease: 'easeInOut',
-								repeatType: 'loop',
-							}}
-							className='mb-6 w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white/30 group-hover:border-supernova transition-colors will-change-transform'>
+							<motion.div
+								animate={{scale: [1, 1.05, 1]}}
+								transition={{
+									duration: 2.5,
+									repeat: Infinity,
+									ease: [0.4, 0, 0.2, 1],
+									repeatType: 'loop',
+								}}
+								className='mb-6 w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white/30 group-hover:border-supernova transition-colors'>
 								<div className='w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1'></div>
 							</motion.div>
 
@@ -286,17 +260,17 @@ export default function SnackLabSection() {
 								<span className='font-heading text-sm sm:text-base tracking-wider'>
 									COMING SOON
 								</span>
-							<motion.span
-								animate={{x: [0, 5, 0]}}
-								transition={{
-									duration: 1.5,
-									repeat: Infinity,
-									ease: 'easeInOut',
-									repeatType: 'loop',
-								}}
-								className='inline-block will-change-transform'>
-								→
-							</motion.span>
+								<motion.span
+									animate={{x: [0, 4, 0]}}
+									transition={{
+										duration: 1.8,
+										repeat: Infinity,
+										ease: [0.4, 0, 0.2, 1],
+										repeatType: 'loop',
+									}}
+									className='inline-block'>
+									→
+								</motion.span>
 							</motion.div>
 						</div>
 

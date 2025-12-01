@@ -21,7 +21,7 @@ const products: Record<
 			price: 149,
 			rating: 4.8,
 			reviews: 421,
-			img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=80',
+			img: 'https://jagdishfarshan.com/cdn/shop/files/Roasted_Chana_Jor_Garam.jpg?v=1709877275&width=1946',
 		},
 		{
 			id: 2,
@@ -29,7 +29,7 @@ const products: Record<
 			price: 129,
 			rating: 4.7,
 			reviews: 312,
-			img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500&q=80',
+			img: 'https://simplydelish.in/cdn/shop/files/SID4419.jpg?v=1701775731&width=990',
 		},
 		{
 			id: 3,
@@ -37,15 +37,15 @@ const products: Record<
 			price: 159,
 			rating: 4.9,
 			reviews: 198,
-			img: 'https://images.unsplash.com/photo-1585238342028-1cce6c35f649?w=500&q=80',
+			img: 'https://rethinksnacks.in/wp-content/uploads/2024/09/1-2-1-1536x1536.jpg',
 		},
 		{
 			id: 4,
-			name: 'Protein Makhana (Peri-Peri)',
+			name: 'Protein Makhana',
 			price: 239,
 			rating: 4.8,
 			reviews: 276,
-			img: 'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=500&q=80',
+			img: 'https://www.mypunepulse.com/wp-content/uploads/2025/02/makhana-1296x728-header.webp',
 		},
 		{
 			id: 5,
@@ -53,7 +53,7 @@ const products: Record<
 			price: 119,
 			rating: 4.6,
 			reviews: 159,
-			img: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=500&q=80',
+			img: 'https://5.imimg.com/data5/IOS/Default/2024/5/418198129/TL/CW/FW/10916742/product-jpeg-1000x1000.png',
 		},
 		{
 			id: 6,
@@ -61,7 +61,7 @@ const products: Record<
 			price: 169,
 			rating: 4.7,
 			reviews: 142,
-			img: 'https://images.unsplash.com/photo-1604908177522-facb599582c8?w=500&q=80',
+			img: 'https://famousdishes.in/wp-content/uploads/2020/05/nachni-chips-recipe-image-in-a-bowl.jpg',
 		},
 	],
 
@@ -207,15 +207,25 @@ export default function CategoriesShowcase() {
 			<div className='pointer-events-none absolute -bottom-32 -right-16 w-80 h-80 bg-redOrange/25 rounded-full blur-3xl' />
 
 			<motion.div
-				className='pointer-events-none absolute top-24 left-10 text-5xl opacity-40'
+				className='pointer-events-none absolute top-24 left-10 text-5xl opacity-40 will-change-transform'
 				animate={{y: [0, -12, 0]}}
-				transition={{duration: 5, repeat: Infinity, ease: 'easeInOut'}}>
+				transition={{
+					duration: 5,
+					repeat: Infinity,
+					ease: [0.4, 0, 0.2, 1],
+					repeatType: 'loop',
+				}}>
 				🍟
 			</motion.div>
 			<motion.div
-				className='pointer-events-none absolute bottom-32 right-12 text-6xl opacity-30'
+				className='pointer-events-none absolute bottom-32 right-12 text-6xl opacity-30 will-change-transform'
 				animate={{y: [0, 14, 0]}}
-				transition={{duration: 6, repeat: Infinity, ease: 'easeInOut'}}>
+				transition={{
+					duration: 6,
+					repeat: Infinity,
+					ease: [0.4, 0, 0.2, 1],
+					repeatType: 'loop',
+				}}>
 				🧃
 			</motion.div>
 
@@ -252,8 +262,8 @@ export default function CategoriesShowcase() {
 				<motion.div
 					initial={{opacity: 0, y: 15}}
 					whileInView={{opacity: 1, y: 0}}
-					viewport={{once: true}}
-					transition={{duration: 0.5}}
+					viewport={{once: true, margin: '-50px'}}
+					transition={{duration: 0.5, ease: [0.4, 0, 0.2, 1]}}
 					className='hidden sm:flex flex-wrap justify-center gap-3 sm:gap-4 mb-10'>
 					{categoryTabs.map((tab, idx) => {
 						const isActive = activeCategory === tab.key
@@ -263,7 +273,8 @@ export default function CategoriesShowcase() {
 								onClick={() => setActiveCategory(tab.key)}
 								whileHover={{scale: 1.06}}
 								whileTap={{scale: 0.96}}
-								className={`relative overflow-hidden rounded-2xl px-6 py-4 flex flex-col items-start min-w-[210px] border font-body text-left transition-all duration-300 ${
+								transition={{duration: 0.2, ease: [0.4, 0, 0.2, 1]}}
+								className={`relative overflow-hidden rounded-2xl px-6 py-4 flex flex-col items-start min-w-[210px] border font-body text-left transition-all duration-300 will-change-transform ${
 									isActive
 										? 'border-redOrange bg-white shadow-[0_10px_30px_rgba(255,59,48,0.35)]'
 										: 'border-transparent bg-white/80 shadow-md hover:shadow-lg hover:border-redOrange/60'
@@ -293,8 +304,8 @@ export default function CategoriesShowcase() {
 				<motion.div
 					initial={{opacity: 0, y: 15}}
 					whileInView={{opacity: 1, y: 0}}
-					viewport={{once: true}}
-					transition={{duration: 0.5}}
+					viewport={{once: true, margin: '-50px'}}
+					transition={{duration: 0.5, ease: [0.4, 0, 0.2, 1]}}
 					className='flex sm:hidden gap-3 overflow-x-auto no-scrollbar pb-3 mb-8'>
 					{categoryTabs.map((tab) => {
 						const isActive = activeCategory === tab.key
@@ -303,7 +314,8 @@ export default function CategoriesShowcase() {
 								key={tab.key}
 								onClick={() => setActiveCategory(tab.key)}
 								whileTap={{scale: 0.95}}
-								className={`whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full font-heading text-base tracking-wide ${
+								transition={{duration: 0.2, ease: [0.4, 0, 0.2, 1]}}
+								className={`whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full font-heading text-base tracking-wide will-change-transform ${
 									isActive
 										? 'bg-redOrange text-white shadow-[0_8px_20px_rgba(255,59,48,0.35)]'
 										: 'bg-white text-mineShaft shadow-md'
@@ -342,32 +354,35 @@ export default function CategoriesShowcase() {
 					key={activeCategory}
 					initial={{opacity: 0, y: 20}}
 					animate={{opacity: 1, y: 0}}
-					transition={{duration: 0.4}}
+					transition={{duration: 0.35, ease: [0.4, 0, 0.2, 1]}}
 					className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
 					{products[activeCategory]?.map((product, idx) => (
 						<motion.div
 							key={product.id}
-							initial={{opacity: 0, y: 30, scale: 0.9}}
+							initial={{opacity: 0, y: 30, scale: 0.95}}
 							animate={{opacity: 1, y: 0, scale: 1}}
-							transition={{duration: 0.4, delay: idx * 0.08}}
+							transition={{
+								duration: 0.35,
+								delay: idx * 0.06,
+								ease: [0.4, 0, 0.2, 1],
+							}}
 							whileHover={{y: -8, scale: 1.02}}
-							className='group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgba(255,59,48,0.25)] transition-all duration-300'>
+							className='group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgba(255,59,48,0.25)] transition-shadow duration-300'>
 							{/* Product Image */}
 							<div className='relative h-48 sm:h-56 overflow-hidden'>
 								<img
 									src={product.img}
 									alt={product.name}
-									className='w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700'
+									className='w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-transform duration-500 ease-out'
 								/>
 								<div className='absolute inset-0 bg-gradient-to-t from-mineShaft/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300' />
-								<div className='absolute top-3 right-3 bg-supernova text-mineShaft px-3 py-1 rounded-full text-xs font-bold shadow-lg transform group-hover:scale-110 transition-transform duration-300'>
+								<div className='absolute top-3 right-3 bg-supernova text-mineShaft px-3 py-1 rounded-full text-xs font-bold shadow-lg group-hover:scale-110 transition-transform duration-300 ease-out'>
 									★ {product.rating}
 								</div>
-							</div>
-
+							</div>{' '}
 							{/* Product Info */}
 							<div className='relative p-4 sm:p-5'>
-								<h3 className='font-heading text-lg sm:text-xl text-mineShaft mb-2 tracking-wide leading-tight line-clamp-1 group-hover:text-redOrange transition-colors duration-300'>
+								<h3 className='font-heading text-lg sm:text-xl text-mineShaft mb-2 tracking-wide leading-tight line-clamp-1 group-hover:text-redOrange transition-colors duration-250 ease-out'>
 									{product.name}
 								</h3>
 
@@ -392,12 +407,13 @@ export default function CategoriesShowcase() {
 								<motion.button
 									whileHover={{scale: 1.03}}
 									whileTap={{scale: 0.97}}
-									className='w-full bg-gradient-to-r from-redOrange to-redOrange/90 hover:from-redOrange/90 hover:to-redOrange text-white py-3 px-4 rounded-xl font-body font-semibold text-sm sm:text-base transition-all shadow-md hover:shadow-[0_8px_25px_rgba(255,59,48,0.35)] flex items-center justify-center gap-2 group/btn'>
-									<ShoppingCart className='w-5 h-5 group-hover/btn:scale-110 transition-transform' />
+									transition={{duration: 0.2, ease: [0.4, 0, 0.2, 1]}}
+									className='w-full bg-gradient-to-r from-redOrange to-redOrange/90 hover:from-redOrange/90 hover:to-redOrange text-white py-3 px-4 rounded-xl font-body font-semibold text-sm sm:text-base transition-colors shadow-md hover:shadow-[0_8px_25px_rgba(255,59,48,0.35)] flex items-center justify-center gap-2 group/btn'>
+									<ShoppingCart className='w-5 h-5 group-hover/btn:scale-110 transition-transform duration-200 ease-out' />
 									<span>ADD TO CART</span>
 								</motion.button>
 
-								<div className='absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-supernova to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+								<div className='absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-supernova to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out' />
 							</div>
 						</motion.div>
 					))}
