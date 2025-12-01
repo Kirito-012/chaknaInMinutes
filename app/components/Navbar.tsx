@@ -50,13 +50,15 @@ export default function Navbar() {
 							className='flex items-center'
 							whileHover={{scale: 1.05, rotate: 2}}
 							transition={{duration: 0.3}}>
-							<Image
-								src='/logo.png'
-								alt='Logo'
-								width={80}
-								height={40}
-								className='h-10 sm:h-14 w-auto transition-all'
-							/>
+							<Link href='/'>
+								<Image
+									src='/logo.png'
+									alt='Logo'
+									width={80}
+									height={40}
+									className='h-10 sm:h-14 w-auto transition-all'
+								/>
+							</Link>
 						</motion.div>
 						<nav className='hidden md:flex font-heading items-center gap-10 text-gray-800 text-lg tracking-wider font-medium'>
 							<Link
@@ -78,9 +80,9 @@ export default function Navbar() {
 								Products
 							</Link>
 							<Link
-								href='/contact'
+								href='/contactus'
 								className={`transition-all duration-300 hover:rotate-[2deg] hover:scale-110 inline-block ${
-									pathname === '/contact'
+									pathname === '/contactus'
 										? 'text-redOrange text-2xl'
 										: 'hover:text-redOrange'
 								}`}>
@@ -167,7 +169,7 @@ export default function Navbar() {
 									{[
 										{href: '/', label: 'Home'},
 										{href: '/products', label: 'Products'},
-										{href: '/contact', label: 'Contact'},
+										{href: '/contactus', label: 'Contact'},
 									].map((link, idx) => (
 										<motion.div
 											key={link.href}
