@@ -223,18 +223,6 @@ export default function SnackLabSection() {
 						<div className='absolute inset-0 bg-gradient-to-br from-transparent via-supernova/10 to-transparent' />
 
 						<div className='relative h-full flex flex-col items-center justify-center text-white px-6'>
-							<motion.div
-								animate={{scale: [1, 1.05, 1]}}
-								transition={{
-									duration: 2.5,
-									repeat: Infinity,
-									ease: [0.4, 0, 0.2, 1],
-									repeatType: 'loop',
-								}}
-								className='mb-6 w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white/30 group-hover:border-supernova transition-colors'>
-								<div className='w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1'></div>
-							</motion.div>
-
 							<h3 className='font-heading text-3xl sm:text-4xl lg:text-5xl mb-3 tracking-wider text-center'>
 								CHAKNA IN MINUTES IN ACTION
 							</h3>

@@ -46,7 +46,7 @@ const benefits = [
 	},
 ]
 
-export default function HowItWorks() {
+export default function HealthySection() {
 	return (
 		<section className='relative py-24 bg-redOrange text-white overflow-hidden'>
 			{/* Soft Glow Lighting */}
