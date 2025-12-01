@@ -19,7 +19,6 @@ export default function Footer() {
 
 	return (
 		<footer className='relative bg-redOrange font-body overflow-hidden'>
-			{/* Decorative Background Elements */}
 			<div className='absolute top-0 left-0 w-96 h-96 bg-supernova/10 rounded-full blur-3xl'></div>
 			<div className='absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl'></div>
 			<motion.div
@@ -30,9 +29,7 @@ export default function Footer() {
 			/>
 
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8 relative z-10'>
-				{/* Main Footer Content */}
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12'>
-					{/* Brand Section */}
 					<motion.div
 						initial={{opacity: 0, y: 30}}
 						whileInView={{opacity: 1, y: 0}}
@@ -69,7 +66,6 @@ export default function Footer() {
 						</div>
 					</motion.div>
 
-					{/* Quick Links */}
 					<motion.div
 						initial={{opacity: 0, y: 30}}
 						whileInView={{opacity: 1, y: 0}}
@@ -97,7 +93,6 @@ export default function Footer() {
 						</ul>
 					</motion.div>
 
-					{/* Categories */}
 					<motion.div
 						initial={{opacity: 0, y: 30}}
 						whileInView={{opacity: 1, y: 0}}
@@ -118,18 +113,17 @@ export default function Footer() {
 									key={idx}
 									whileHover={{x: 5}}
 									transition={{duration: 0.2}}>
-								<a
-									href='#'
-									className='text-white/80 hover:text-white hover:font-semibold text-sm sm:text-base transition-all flex items-center gap-2 group'>
-									<span className='w-0 h-0.5 bg-supernova group-hover:w-4 transition-all duration-300'></span>
-									{category}
-								</a>
+									<a
+										href='#'
+										className='text-white/80 hover:text-white hover:font-semibold text-sm sm:text-base transition-all flex items-center gap-2 group'>
+										<span className='w-0 h-0.5 bg-supernova group-hover:w-4 transition-all duration-300'></span>
+										{category}
+									</a>
 								</motion.li>
 							))}
 						</ul>
 					</motion.div>
 
-					{/* Contact */}
 					<motion.div
 						initial={{opacity: 0, y: 30}}
 						whileInView={{opacity: 1, y: 0}}
@@ -144,29 +138,27 @@ export default function Footer() {
 								<span>123 Snack Street, Food District, Mumbai 400001</span>
 							</li>
 							<li className='flex items-center gap-3 text-white/80 text-sm sm:text-base'>
-							<Phone className='w-5 h-5 text-supernova flex-shrink-0' />
-							<a
-								href='tel:+911234567890'
-								className='hover:text-white hover:font-semibold transition-all'>
-								+91 12345 67890
-							</a>
+								<Phone className='w-5 h-5 text-supernova flex-shrink-0' />
+								<a
+									href='tel:+911234567890'
+									className='hover:text-white hover:font-semibold transition-all'>
+									+91 12345 67890
+								</a>
 							</li>
 							<li className='flex items-center gap-3 text-white/80 text-sm sm:text-base'>
-							<Mail className='w-5 h-5 text-supernova flex-shrink-0' />
-							<a
-								href='mailto:hello@chaknainminutes.com'
-								className='hover:text-white hover:font-semibold transition-all'>
-								hello@chaknainminutes.com
-							</a>
+								<Mail className='w-5 h-5 text-supernova flex-shrink-0' />
+								<a
+									href='mailto:hello@chaknainminutes.com'
+									className='hover:text-white hover:font-semibold transition-all'>
+									hello@chaknainminutes.com
+								</a>
 							</li>
 						</ul>
 					</motion.div>
 				</div>
 
-				{/* Divider */}
 				<div className='h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mb-8'></div>
 
-				{/* Bottom Bar */}
 				<motion.div
 					initial={{opacity: 0}}
 					whileInView={{opacity: 1}}
@@ -195,7 +187,6 @@ export default function Footer() {
 					</div>
 				</motion.div>
 
-				{/* Fun Tagline with Back to Top */}
 				<motion.div
 					initial={{opacity: 0, y: 20}}
 					whileInView={{opacity: 1, y: 0}}
@@ -206,7 +197,6 @@ export default function Footer() {
 						Snack Fast. Snack Fresh. Snack Happy! 🍿
 					</p>
 
-					{/* Scroll to Top Button - Better Placement */}
 					<motion.button
 						onClick={scrollToTop}
 						initial={{opacity: 0, scale: 0.8}}

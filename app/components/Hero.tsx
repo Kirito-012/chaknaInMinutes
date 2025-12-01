@@ -127,7 +127,6 @@ export default function Hero() {
 				className='absolute bottom-20 sm:bottom-32 right-2 sm:right-80 w-36 sm:w-40 select-none pointer-events-none opacity-30 sm:opacity-40'
 			/>
 
-			{/* MAIN CONTENT */}
 			<div className='relative z-10 max-w-[1200px] mx-auto text-center text-white px-4 sm:px-6 py-12'>
 				<motion.h1
 					initial={{opacity: 0, y: 80}}

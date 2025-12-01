@@ -53,7 +53,6 @@ export default function HowItWorks() {
 			<div className='absolute inset-0 bg-gradient-to-r from-redOrange/70 via-redOrange to-redOrange/70 pointer-events-none' />
 
 			<div className='max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10'>
-				{/* LEFT TEXT CONTENT */}
 				<div>
 					<motion.h2
 						initial={{opacity: 0, y: 15}}
@@ -75,7 +74,6 @@ export default function HowItWorks() {
 						snacks engineered for your wellbeing.
 					</motion.p>
 
-					{/* Benefits List */}
 					<div className='flex flex-col gap-6'>
 						{benefits.map((b, i) => (
 							<motion.div
@@ -83,7 +81,11 @@ export default function HowItWorks() {
 								initial={{opacity: 0, x: -20}}
 								whileInView={{opacity: 1, x: 0}}
 								viewport={{once: true, margin: '-50px'}}
-								transition={{delay: i * 0.08, duration: 0.4, ease: [0.4, 0, 0.2, 1]}}
+								transition={{
+									delay: i * 0.08,
+									duration: 0.4,
+									ease: [0.4, 0, 0.2, 1],
+								}}
 								className='flex items-start gap-4'>
 								<div className='p-3 rounded-full bg-white/15 border border-white/25'>
 									{b.icon}
@@ -100,7 +102,6 @@ export default function HowItWorks() {
 						))}
 					</div>
 
-					{/* Certifications Row */}
 					{/* <div className='mt-12 flex flex-wrap gap-8 font-body tracking-wide text-sm opacity-90'>
 						<span>✔ ISO:22000 Certified</span>
 						<span>✔ FSSAI Verified</span>
@@ -109,7 +110,6 @@ export default function HowItWorks() {
 					</div> */}
 				</div>
 
-				{/* RIGHT IMAGE BLOCK */}
 				<motion.div
 					initial={{opacity: 0, scale: 0.96}}
 					whileInView={{opacity: 1, scale: 1}}

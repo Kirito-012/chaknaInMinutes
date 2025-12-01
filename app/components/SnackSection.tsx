@@ -89,7 +89,6 @@ export default function SnackLabSection() {
 			</motion.div>
 
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-				{/* Header */}
 				<motion.div
 					initial={{opacity: 0, y: 20}}
 					whileInView={{opacity: 1, y: 0}}
@@ -142,7 +141,6 @@ export default function SnackLabSection() {
 					</p>
 				</motion.div>
 
-				{/* Timeline Steps */}
 				<div className='relative mb-16 sm:mb-20'>
 					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 relative'>
 						{steps.map((step, index) => {
@@ -160,7 +158,6 @@ export default function SnackLabSection() {
 									}}
 									whileHover={{y: -8}}
 									className='relative flex flex-col items-center text-center group'>
-									{/* Icon Container */}
 									<motion.div
 										whileHover={{scale: 1.1}}
 										transition={{duration: 0.2, ease: [0.4, 0, 0.2, 1]}}
@@ -170,7 +167,6 @@ export default function SnackLabSection() {
 											strokeWidth={2.5}
 										/>
 
-										{/* Floating emoji */}
 										<motion.span
 											animate={{y: [0, -6, 0]}}
 											transition={{
@@ -184,7 +180,6 @@ export default function SnackLabSection() {
 											{step.emoji}
 										</motion.span>
 
-										{/* Number Badge */}
 										<div className='absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-supernova'>
 											<span className='font-heading text-redOrange text-sm font-bold'>
 												{index + 1}
@@ -192,7 +187,6 @@ export default function SnackLabSection() {
 										</div>
 									</motion.div>
 
-									{/* Content */}
 									<h3 className='font-heading text-xl sm:text-2xl text-mineShaft tracking-wide mb-3 leading-tight'>
 										{step.title}
 									</h3>
@@ -201,7 +195,6 @@ export default function SnackLabSection() {
 										{step.text}
 									</p>
 
-									{/* Bottom Accent Line */}
 									<motion.div
 										initial={{scaleX: 0}}
 										whileInView={{scaleX: 1}}
@@ -219,7 +212,6 @@ export default function SnackLabSection() {
 					</div>
 				</div>
 
-				{/* Video Preview Card */}
 				<motion.div
 					initial={{opacity: 0, y: 20}}
 					whileInView={{opacity: 1, y: 0}}
@@ -228,10 +220,8 @@ export default function SnackLabSection() {
 					whileHover={{scale: 1.02}}
 					className='relative group cursor-pointer'>
 					<div className='relative w-full h-64 sm:h-80 lg:h-96 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] bg-gradient-to-br from-redOrange via-[#FF5048] to-redOrange'>
-						{/* Gradient overlay */}
 						<div className='absolute inset-0 bg-gradient-to-br from-transparent via-supernova/10 to-transparent' />
 
-						{/* Content */}
 						<div className='relative h-full flex flex-col items-center justify-center text-white px-6'>
 							<motion.div
 								animate={{scale: [1, 1.05, 1]}}
@@ -274,7 +264,6 @@ export default function SnackLabSection() {
 							</motion.div>
 						</div>
 
-						{/* Decorative Elements */}
 						<div className='absolute top-4 left-4 w-16 h-16 bg-supernova/30 rounded-full blur-2xl'></div>
 						<div className='absolute bottom-4 right-4 w-20 h-20 bg-white/20 rounded-full blur-2xl'></div>
 					</div>

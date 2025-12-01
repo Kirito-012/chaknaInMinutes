@@ -95,7 +95,6 @@ export default function Navbar() {
 							Feed Me!
 						</motion.button>
 
-						{/* Mobile Hamburger Button */}
 						<motion.button
 							whileTap={{scale: 0.9}}
 							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -128,7 +127,6 @@ export default function Navbar() {
 				</div>
 			</motion.header>
 
-			{/* Mobile Menu */}
 			<AnimatePresence>
 				{mobileMenuOpen && (
 					<>

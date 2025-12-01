@@ -230,7 +230,6 @@ export default function CategoriesShowcase() {
 			</motion.div>
 
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
-				{/* Heading */}
 				<div className='text-center mb-10 sm:mb-14'>
 					<motion.p
 						initial={{opacity: 0, y: 20}}
@@ -257,8 +256,6 @@ export default function CategoriesShowcase() {
 						Pick a vibe, we’ll handle the rest — fresh, fast and right on time.
 					</motion.p>
 				</div>
-
-				{/* Tabs */}
 				<motion.div
 					initial={{opacity: 0, y: 15}}
 					whileInView={{opacity: 1, y: 0}}
@@ -300,7 +297,6 @@ export default function CategoriesShowcase() {
 					})}
 				</motion.div>
 
-				{/* Mobile horizontal scroll version */}
 				<motion.div
 					initial={{opacity: 0, y: 15}}
 					whileInView={{opacity: 1, y: 0}}
@@ -327,7 +323,6 @@ export default function CategoriesShowcase() {
 					})}
 				</motion.div>
 
-				{/* Marquee strip */}
 				<div className='mb-10 relative'>
 					<div className='relative overflow-hidden rounded-full bg-mineShaft text-white py-2 px-4'>
 						<motion.div
@@ -349,7 +344,6 @@ export default function CategoriesShowcase() {
 					</div>
 				</div>
 
-				{/* Product Grid */}
 				<motion.div
 					key={activeCategory}
 					initial={{opacity: 0, y: 20}}
@@ -368,7 +362,6 @@ export default function CategoriesShowcase() {
 							}}
 							whileHover={{y: -8, scale: 1.02}}
 							className='group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgba(255,59,48,0.25)] transition-shadow duration-300'>
-							{/* Product Image */}
 							<div className='relative h-48 sm:h-56 overflow-hidden'>
 								<img
 									src={product.img}
@@ -380,7 +373,6 @@ export default function CategoriesShowcase() {
 									★ {product.rating}
 								</div>
 							</div>{' '}
-							{/* Product Info */}
 							<div className='relative p-4 sm:p-5'>
 								<h3 className='font-heading text-lg sm:text-xl text-mineShaft mb-2 tracking-wide leading-tight line-clamp-1 group-hover:text-redOrange transition-colors duration-250 ease-out'>
 									{product.name}
